@@ -42,7 +42,74 @@ package com.sist.main;
  *               => 데이터 수집 / 데이터 전처리 / 분석
  *            ---------------------------------
  *       => 프로젝트
- *          => 벤치마킹
+ *          => 벤치마킹 (아이템)
+ *            => 예약(예매), 추천, 결제
+ *            ---------------------
+ *              | => 출력할 데이터
+ *          => 요구사항 분석
+ *             ---------- 필요한 데이터 (크롤링)
+ *          => 오라클 저장 (데이터베이스 설계)
+ *          => 화면 UI
+ *          => 구현
+ *          => 테스트
+ *          => 배포 (발표) => 호스팅 (AWS)
+ *      
+ *      => 문법
+ *         = 연산자 / 제어문
+ *         = 재사용 => 메소드
+ *         ---------------
+ *          같은 기능 => 묶어주는 역할
+ *          -------------------- 한개로 통합 (클래스)
+ *          
+ *          클래스 : 관련된 데이터를 묶는다. => VO
+ *                 => 캡슐화 => 변수 은닉화 (private)
+ *                   => 다른 클래스나 브라우저에서 접근이 안됨
+ *                   => 사용 => 읽기 / 쓰기 => getter/setter
+ *                 => 사용자 정의 데이터형
+ *                    => CRUD => 액션
+ *                       => 메소드로만 이루어진다.
+ *                       => ~Manager
+ *                       => ~DAO
+ *                 관련된 기능을 묶는다.
+ *                 => 핵심 => 재사용 (상속/포함)
+ *                                    ----
+ *                 => 포함 / 상속 => 수정 , 추가
+ *                 ----------------- 객체지향의 3대 요소
+ *                 => 관련된 클래스가 여러개 있는 경우
+ *                    ------------------------
+ *                    => 인터페이스 이용해서 1개로 제어
+ *                    List list = new ArrayList();
+ *                         list = new Vector();
+ *                         list = new LinkedList();
+ *                    => 객체란?
+ *                       -----
+ *                 *** 여러개 데이터
+ *                     변수 / 배열 / 클래스 => 한 개의 이름으로 어떻게 제어
+ *                     
+ *       
+ *       리턴형 => 1개
+ *       
+ *       emp => 사원정보 
+ *       => empno / 사번 => int
+ *       => ename / 이름 => String
+ *       => job   / 직위 => Stirng
+ *       => hiredate / 입사일 => Date
+ *       => sal   / 급여 => int
+ *       => comm  / 성과금 => int
+ *       => mgr   / 사수 사번 => int
+ *       => deptno / 부서번호 => int
+ *       
+ *       => public int getEmpno()
+ *          public String getEname()
+ *          public int getJob()
+ *          public Date getHiredate()
+ *          public int getSal()
+ *          public int getMgr()
+ *          public int getComm()
+ *          public int getDeptno()
+ *          
+ *       => public EmpVO getEmpData()
+ *                 
  * */
 public class MainClass_2 {
 	public static void main(String[] args) {
