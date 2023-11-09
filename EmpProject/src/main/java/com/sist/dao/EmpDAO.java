@@ -46,9 +46,18 @@ public class EmpDAO {
 			//연결
 			getConnection();
 			//SQL 문장 전송
-			String sql = "SELECT empno,ename,job,hiredate,sal"+"FROM emp"+"ORDER BY 1";
+			String sql = "SELECT empno,ename,job,hiredate,sal"+" FROM emp"+" ORDER BY 1";
 			ps = conn.prepareStatement(sql);//값 삽입
 			ResultSet rs = ps.executeQuery();//Enter
+			while(rs.next()) {
+				EmpVO vo = new EmpVO();
+				vo.setEmpno(rs.getInt(1));
+				vo.setEname(rs.getString(2));
+				vo.setJob(rs.getString(3));
+				vo.setHiredate(rs.getDate(4));
+				vo.setSal(rs.getInt(5));
+				list.add(vo);
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -58,4 +67,5 @@ public class EmpDAO {
 		}
 		return list;
 	}
+	
 }
