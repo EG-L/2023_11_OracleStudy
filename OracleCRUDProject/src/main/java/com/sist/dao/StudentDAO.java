@@ -145,5 +145,15 @@ public class StudentDAO {
 	// 4. 수정 => UPDATE => COMMIT
 	
 	// 5. 삭제 => DELETE => COMMIT
+	public void stdDelete(int hakbun) {
+		try {
+			getConnection();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		finally {
+			disConnection();
+		}
+	}
 
 }
