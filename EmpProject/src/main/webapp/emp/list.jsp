@@ -37,7 +37,7 @@ h1{
 					<th class="text-center">급여</th>
 				</tr>
 				<%
-				    // =은 system.print.ln;
+				    // =은 system.out.println();
 					for(EmpVO vo:list){
 				%>
 						<tr>
