@@ -1,18 +1,20 @@
 package com.sist.dao;
 /*
- *  HAKBUN                                    NOT NULL NUMBER
+ HAKBUN                                    NOT NULL NUMBER
  NAME                                      NOT NULL VARCHAR2(50)
  KOR                                                NUMBER
  ENG                                                NUMBER
  MATH                                               NUMBER
  REGDATE                                            DATE
- * */
-import java.util.*;
+ */
+
+import java.util.Date;
+
 public class StudentVO {
 	private int hakbun,kor,eng,math;
 	private String name;
 	private Date regdate;
-	
+	// 출력
 	private int total,rank;
 	private double avg;
 	private String dbday;
@@ -77,6 +79,4 @@ public class StudentVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	
-
 }

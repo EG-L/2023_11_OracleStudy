@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.sist.dao.*,java.util.*"%>
 <%
-    //자바 코딩 영역 => main
-    StudentDAO dao = new StudentDAO();
-    ArrayList<StudentVO> list = dao.stdListData();
+	StudentDAO dao=new StudentDAO();
+	ArrayList<StudentVO> list=dao.stdListData();
 %>
 <!DOCTYPE html>
 <html>
@@ -17,10 +16,10 @@
 }
 .row{
 	margin: 0px auto;
-	width:800px;
+	width: 800px;
 }
 h1{
-	text-align : center;
+	text-align: center;
 }
 </style>
 </head>
@@ -35,34 +34,38 @@ h1{
 					</td>
 				</tr>
 			</table>
-		 	<table class="table table-hover">
-		 		<tr class="info">
-		 			<th class="text-center">학번</th>
-		 			<th class="text-center">이름</th>
-		 			<th class="text-center">국어</th>
-		 			<th class="text-center">영어</th>
-		 			<th class="text-center">수학</th>
-		 			<th class="text-center">총점</th>
-		 			<th class="text-center">평균</th>
-		 			<th class="text-center">등수</th>
-		 		</tr>
-		 		<%
-		 			for(StudentVO vo:list){
-		 			%>
-		 				<tr>
-				 			<td class="text-center"><%= vo.getHakbun() %></td>
-				 			<td class="text-center"><%= vo.getName() %></td>
-				 			<td class="text-center"><%= vo.getKor() %></td>
-				 			<td class="text-center"><%= vo.getEng() %></td>
-				 			<td class="text-center"><%= vo.getMath() %></td>
-				 			<td class="text-center"><%= vo.getTotal() %></td>
-				 			<td class="text-center"><%= vo.getAvg() %></td>
-				 			<td class="text-center"><%= vo.getRank() %></td>
-				 		</tr>
-		 			<%
-		 			}
-		 		%>
-		 	</table>
+			<table class="table table-hover">
+				<tr class="info">
+					<th class="text-center">학번</th>
+					<th class="text-center">이름</th>
+					<th class="text-center">국어</th>
+					<th class="text-center">영어</th>
+					<th class="text-center">수학</th>
+					<th class="text-center">총점</th>
+					<th class="text-center">평균</th>
+					<th class="text-center">등수</th>
+					<th class="text-center"></th>
+				</tr>
+				<%
+					for(StudentVO vo:list){
+				%>
+						<tr>
+							<td class="text-center"><%=vo.getHakbun() %></td>
+							<td class="text-center"><%=vo.getName() %></td>
+							<td class="text-center"><%=vo.getKor() %></td>
+							<td class="text-center"><%=vo.getEng() %></td>
+							<td class="text-center"><%=vo.getMath() %></td>
+							<td class="text-center"><%=vo.getTotal() %></td>
+							<td class="text-center"><%=vo.getAvg() %></td>
+							<td class="text-center"><%=vo.getRank() %></td>
+							<td class="text-center">
+								<a href="delete.jsp?hakbun=<%=vo.getHakbun() %>" class="btn btn-sm btn-info">삭제</a>
+							</td>
+						</tr>
+				<%		
+					}
+				%>
+			</table>
 		</div>
 	</div>
 </body>
