@@ -149,6 +149,8 @@ public class StudentDAO {
 		try {
 			getConnection();
 			String sql = "DELETE FROM student "+"WHERE hakbun="+hakbun;
+			ps = conn.prepareStatement(sql);
+			ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
