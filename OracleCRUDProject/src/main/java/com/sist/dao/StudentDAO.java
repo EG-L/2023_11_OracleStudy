@@ -148,6 +148,7 @@ public class StudentDAO {
 	public void stdDelete(int hakbun) {
 		try {
 			getConnection();
+			String sql = "DELETE FROM student "+"WHERE hakbun="+hakbun;
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
