@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class StudentDAO {
 	private Connection conn;
 	private PreparedStatement ps;
-	private final String URL="jdbc:oracle:thin:@localhost:1521:XE";
+	private final String URL="jdbc:oracle:thin:@211.238.142.119:1521:XE";
 	
 	public StudentDAO() {
 		try {
@@ -94,6 +94,31 @@ public class StudentDAO {
 			ps.setInt(4, vo.getMath());
 			ps.executeUpdate(); // 데이터베이스 변동시
 			// executeUpdate() => AUTOCOMMIT
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
+		}
+	}
+	public void stdInsert(String mno,int cno,String cate) {
+		try {
+			getConnection();
+			String sql = "";
+			System.out.println(mno);
+			if(String.valueOf(Integer.parseInt(mno)).length()==7) {
+				sql="INSERT INTO middlect(mno,cno,cate) "
+						+ "VALUES (TO_CHAR('"+mno+"'),"+cno+",'"+cate+"')";
+			}
+			else {
+				sql="INSERT INTO middlect(mno,cno,cate) "
+						+ "VALUES (TO_CHAR('"+mno+"'),"+cno+",'"+cate+"')";
+			}
+			ps=conn.prepareStatement(sql);
+//			ps.setString(1, mno);
+//			ps.setInt(2, cno);
+//			ps.setString(3, cate);
+			ps.executeUpdate(); // 데이터베이스 변동시
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
